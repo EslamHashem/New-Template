@@ -18,7 +18,9 @@ html {
 
 body {
   font-family: 'Cairo', sans-serif;
+  overflow-x: hidden;
 }
+
 a {
   text-decoration: none;
 }
@@ -34,6 +36,25 @@ ul {
   margin-left: auto;
   margin-right: auto;
 }
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 .dots {
   background-image: url(../imgs/dots.png);
   height: 186px;
@@ -50,33 +71,6 @@ ul {
   left: 0;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  .container {
-    width: 300px;
-  }
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
 .main-title {
   margin: 0 auto 80px;
   text-transform: uppercase;
@@ -180,9 +174,6 @@ ul {
   .navbar .nav-links {
     margin: auto;
   }
-  .navbar .nav-links li {
-    min-width: 88px;
-  }
 }
 /* End Media of ul links */
 .navbar .nav-links > li:hover .mega-menu {
@@ -201,9 +192,6 @@ ul {
   overflow: hidden;
   font-size: 18px;
   transition: var(--main-transition);
-}
-.navbar .nav-links {
-  display: flex;
 }
 @media (max-width: 767px) {
   .navbar .nav-links > li > a {
@@ -299,6 +287,13 @@ ul {
   opacity: 0;
   transition: top var(--main-transition), opacity var(--main-transition);
 }
+@media (max-width: 767px) {
+  .navbar .mega-menu {
+    flex-direction: column;
+    gap: 0;
+    padding: 5px;
+  }
+}
 .navbar .mega-menu .image img {
   max-width: 100%;
 }
@@ -390,7 +385,11 @@ ul {
   max-width: 100%;
   animation: up-and-down 5s linear infinite;
 }
-
+@media (max-width: 991px) {
+  .landing .image img {
+    display: none;
+  }
+}
 .landing .go-down {
   color: var(--main-color);
   position: absolute;
