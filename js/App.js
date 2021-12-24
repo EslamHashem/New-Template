@@ -42,3 +42,34 @@ function typing() {
   }
 }
 typing();
+
+// Animation of progress
+let section = document.querySelector('.our-skills');
+let spans = document.querySelectorAll('.the-progress span');
+
+let statsSection = document.querySelector('.stats');
+let nums = document.querySelectorAll('.stats .number');
+let started = false;
+
+window.onscroll = function () {
+  if (window.scrollY >= section.offsetTop - 200) {
+    spans.forEach((span) => {
+      span.style.width = span.dataset.width;
+    });
+  }
+  if (window.scrollY >= statsSection.offsetTop) {
+    if (!started) {
+      nums.forEach((num) => startCount(num));
+    }
+    started = true;
+  }
+};
+function startCount(el) {
+  let goal = el.dataset.goal;
+  let count = setInterval(() => {
+    el.textContent++;
+    if (el.textContent == goal) {
+      clearInterval(count);
+    }
+  }, 2000 / goal);
+}
